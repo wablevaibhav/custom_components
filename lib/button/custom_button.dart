@@ -14,6 +14,7 @@ class CustomButton extends StatelessWidget {
   final IconData? leadingIcon;
   final IconData? trailingIcon;
   final TextDecoration? textDecoration;
+  final TextStyle? textStyle;
 
   const CustomButton({
     super.key,
@@ -26,6 +27,7 @@ class CustomButton extends StatelessWidget {
     this.leadingIcon,
     this.trailingIcon,
     this.textDecoration,
+    this.textStyle,
   }) : buttonType = buttonType ?? ButtonType.primary;
 
   @override
@@ -47,13 +49,14 @@ class CustomButton extends StatelessWidget {
             Text(
               text,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                decoration: textDecoration ?? TextDecoration.none,
-                decorationColor: buttonType.buttonTheme.textColor,
-                color: buttonType.buttonTheme.textColor,
-                fontSize: fontSize ?? 16,
-                fontWeight: FontWeight.w400,
-              ),
+              style: textStyle ??
+                  TextStyle(
+                    decoration: textDecoration ?? TextDecoration.none,
+                    decorationColor: buttonType.buttonTheme.textColor,
+                    color: buttonType.buttonTheme.textColor,
+                    fontSize: fontSize ?? 16,
+                    fontWeight: FontWeight.w400,
+                  ),
             )
           ],
         ),
@@ -78,11 +81,12 @@ class CustomButton extends StatelessWidget {
               Text(
                 text,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: buttonType.buttonTheme.textColor,
-                  fontSize: fontSize ?? 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: textStyle ??
+                    TextStyle(
+                      color: buttonType.buttonTheme.textColor,
+                      fontSize: fontSize ?? 16,
+                      fontWeight: FontWeight.w400,
+                    ),
               ),
               const Gap(5),
               if (trailingIcon != null)

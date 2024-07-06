@@ -100,7 +100,7 @@ class CustomTooltip extends StatefulWidget {
     this.closeCallback,
   })  : messageTextStyle =
             textStyle ?? CustomTextStyle.normal.withColor(CustomColors.white),
-        backgroundColor = backgroundColor ?? CustomColors.gray.shade900,
+        backgroundColor = backgroundColor ?? CustomColors.bluePrimary,
         activeChild = activeChild ?? child;
 
   @override

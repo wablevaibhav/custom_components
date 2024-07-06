@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomColors {
   const CustomColors._();
 
-  static const MaterialColor bluePrimary = MaterialColor(
+  static const CustomColor bluePrimary = CustomColor(
     _primaryColor,
     <int, Color>{
       100: Color(0xFFE9ECF4),
@@ -16,7 +16,7 @@ class CustomColors {
 
   static const int _primaryColor = 0xFF1B489B;
 
-  static const MaterialColor blueSecondary = MaterialColor(
+  static const CustomColor blueSecondary = CustomColor(
     _secondaryColor,
     <int, Color>{
       100: Color(0xFFE7E7E9),
@@ -29,7 +29,7 @@ class CustomColors {
 
   static const int _secondaryColor = 0xFF0C0F24;
 
-  static const MaterialColor warningPrimary = MaterialColor(
+  static const CustomColor warningPrimary = CustomColor(
     _warningPrimaryColor,
     <int, Color>{
       100: Color(0xFFFFE1A4),
@@ -39,7 +39,7 @@ class CustomColors {
 
   static const int _warningPrimaryColor = 0xFF895D0B;
 
-  static const MaterialColor successPrimary = MaterialColor(
+  static const CustomColor successPrimary = CustomColor(
     _successPrimaryColor,
     <int, Color>{
       100: Color(0xFFCCF2DB),
@@ -49,7 +49,7 @@ class CustomColors {
 
   static const int _successPrimaryColor = 0xFF1E774A;
 
-  static const MaterialColor dangerPrimary = MaterialColor(
+  static const CustomColor dangerPrimary = CustomColor(
     _dangerPrimaryColor,
     <int, Color>{
       0: Color(_dangerPrimaryColor),
@@ -69,20 +69,41 @@ class CustomColors {
   static const int _dangerPrimaryColor = 0xFFdc3545;
 
   static const MaterialColor black = MaterialColor(
-    _blackColor,
-    <int, Color>{},
+    _blackPrimaryValue,
+    <int, Color>{
+      50: Color(0xFF000000),
+      100: Color(0xFF000000),
+      200: Color(0xFF000000),
+      300: Color(0xFF000000),
+      400: Color(0xFF000000),
+      500: Color(_blackPrimaryValue),
+      600: Color(0xFF000000),
+      700: Color(0xFF000000),
+      800: Color(0xFF000000),
+      900: Color(0xFF000000),
+    },
   );
+  static const int _blackPrimaryValue = 0xFF000000;
 
-  static const int _blackColor = 0xFF000000;
-
-  static const MaterialColor white = MaterialColor(
-    _whiteColor,
-    <int, Color>{},
+  static const CustomColor white = CustomColor(
+    _whitePrimaryColor,
+    <int, Color>{
+      0: Color(_whitePrimaryColor),
+      1: Color(_whitePrimaryColor),
+      2: Color(_whitePrimaryColor),
+      3: Color(_whitePrimaryColor),
+      4: Color(_whitePrimaryColor),
+      5: Color(_whitePrimaryColor),
+      6: Color(_whitePrimaryColor),
+      7: Color(_whitePrimaryColor),
+      8: Color(_whitePrimaryColor),
+      9: Color(_whitePrimaryColor),
+      10: Color(_whitePrimaryColor),
+    },
   );
+  static const int _whitePrimaryColor = 0xFFffffff;
 
-  static const int _whiteColor = 0xFFFFFFFF;
-
-  static const MaterialColor disablePrimary = MaterialColor(
+  static const CustomColor disablePrimary = CustomColor(
     _disableColor,
     <int, Color>{
       100: Color(0xFFE2E3E4),
@@ -92,7 +113,7 @@ class CustomColors {
 
   static const int _disableColor = 0xFF58595B;
 
-  static const MaterialColor gray = MaterialColor(
+  static const CustomColor gray = CustomColor(
     _grayPrimaryColor,
     <int, Color>{
       0: Color(_grayPrimaryColor),

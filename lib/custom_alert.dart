@@ -80,7 +80,7 @@ class CustomAlert extends StatelessWidget {
   final TextStyle messageTextStyle;
 
   CustomAlert(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.message,
       required this.onTap,
@@ -96,12 +96,11 @@ class CustomAlert extends StatelessWidget {
       this.maxWidth = double.infinity,
       TextStyle? titleTextStyle,
       TextStyle? messageTextStyle})
-      : titleColor = titleColor ?? CustomColors.gray.shade900,
-        messageColor = messageColor ?? CustomColors.gray.shade900,
-        titleTextStyle = titleTextStyle ?? CustomTextStyle.subHeadingH5,
+      : titleColor = titleColor ?? CustomColors.gray,
+        messageColor = messageColor ?? CustomColors.gray,
+        titleTextStyle = titleTextStyle ?? CustomTextStyle.normal,
         messageTextStyle =
-            messageTextStyle ?? CustomTextStyle.subHeadingH5.light300(),
-        super(key: key);
+            messageTextStyle ?? CustomTextStyle.normal.light300();
 
   factory CustomAlert.style(
       {required CustomAlertStyle style,

@@ -38,14 +38,14 @@ class UIHelpers {
     return Column(
       children: <Widget>[
         verticalSpaceTiny,
-        Divider(height: spaceHeight, color: CustomColors.gray.shade300),
+        Divider(height: spaceHeight, color: CustomColors.gray.shade3),
         verticalSpaceTiny,
       ],
     );
   }
 
   static Widget listDivider = Divider(
-    color: CustomColors.gray.shade400,
+    color: Colors.grey,
     thickness: 1,
   );
 

@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomTextStyle {
   const CustomTextStyle._();
 
-  static final Color fontColor = CustomColors.gray.shade900;
-  static final Color fontHintColor = CustomColors.gray.shade700;
+  static const Color fontColor = CustomColors.black;
+  static const Color fontHintColor = CustomColors.gray;
   static const FontWeight fontWeight = FontWeight.normal;
 
   // HEADING H1

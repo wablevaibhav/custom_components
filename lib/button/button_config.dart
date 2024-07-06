@@ -29,9 +29,9 @@ extension StyleExtension on ButtonType {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0),
               ),
-              elevation: 0,
+              elevation: 3,
               side: const BorderSide(color: CustomColors.bluePrimary),
-              backgroundColor: Colors.transparent,
+              // backgroundColor: Colors.transparent,
             ));
       case ButtonType.primaryText:
         return ColorConfig(
@@ -60,7 +60,7 @@ extension StyleExtension on ButtonType {
                 side: const BorderSide(
                   color: CustomColors.black,
                 ),
-                backgroundColor: Colors.transparent,
+                // backgroundColor: Colors.transparent,
                 elevation: 0),
             textColor: CustomColors.black);
       case ButtonType.darkText:

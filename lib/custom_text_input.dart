@@ -21,6 +21,8 @@ class CustomTextInput extends StatelessWidget {
   final TextStyle? labelTextStyle;
   final String? Function(String?)? validator;
   final bool? enabled;
+  final int? maxLength;
+  final int? maxLines;
 
   const CustomTextInput({
     super.key,
@@ -42,25 +44,17 @@ class CustomTextInput extends StatelessWidget {
     this.inputFormatters,
     this.labelTextStyle,
     this.validator,
+    this.maxLength,
+    this.maxLines,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label ?? '',
-          style: labelTextStyle ??
-              CustomTextStyle.small.copyWith(
-                  fontWeight: FontWeight.w400, color: CustomColors.black),
+    return Theme(
+        data: Theme.of(context).copyWith(
+          primaryColor: CustomColors.bluePrimary,
         ),
-        const SizedBox(
-          height: 5,
-        ),
-        SizedBox(
-          height: 40,
+        child: Material(
           child: TextFormField(
             autovalidateMode: AutovalidateMode.onUserInteraction,
             enabled: enabled,
@@ -71,17 +65,16 @@ class CustomTextInput extends StatelessWidget {
             controller: controller,
             style: CustomTextStyle.button,
             showCursor: showCursor ?? true,
-            minLines: 1,
-            cursorColor: CustomColors.gray.shade900,
+            maxLength: maxLength,
+            maxLines: maxLines ?? 1,
+            cursorColor: CustomColors.black,
             decoration: inputDecoration(hint, suffixIcon),
             obscureText: obscureText ?? false,
             autocorrect: autoCorrect ?? false,
             enableSuggestions: enableSuggestions ?? false,
             inputFormatters: inputFormatters,
           ),
-        ),
-      ],
-    );
+        ));
   }
 
   InputDecoration inputDecoration(String? hint, Widget? suffixIcon,
@@ -90,33 +83,40 @@ class CustomTextInput extends StatelessWidget {
       bool isDense = false,
       EdgeInsets contentPadding = const EdgeInsets.fromLTRB(16, 10, 16, 10)}) {
     return InputDecoration(
-      fillColor: CustomColors.disablePrimary.shade100,
+      label: Text(
+        label ?? '',
+        style: labelTextStyle ??
+            CustomTextStyle.small.copyWith(
+                fontWeight: FontWeight.w400, color: CustomColors.black),
+      ),
+      fillColor: CustomColors.disablePrimary,
       filled: !enabled!,
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        borderSide: BorderSide(width: 1, color: CustomColors.gray.shade900),
+        borderSide: const BorderSide(color: CustomColors.dangerPrimary),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+        borderSide: const BorderSide(color: CustomColors.dangerPrimary),
       ),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        borderSide:
-            BorderSide(width: 0, color: CustomColors.disablePrimary.shade100),
+        borderSide: const BorderSide(color: CustomColors.disablePrimary),
       ),
-      focusColor: CustomColors.gray.shade900,
+      focusColor: CustomColors.black,
       hintStyle: const TextStyle(
           color: Color.fromARGB(255, 133, 135, 145),
           fontWeight: FontWeight.w400),
-      hoverColor: CustomColors.gray.shade900,
-      floatingLabelStyle: TextStyle(
-          color: CustomColors.gray.shade900,
-          fontSize: 12,
-          fontWeight: FontWeight.w500),
+      hoverColor: CustomColors.black,
+      floatingLabelStyle: const TextStyle(
+          color: CustomColors.black, fontSize: 12, fontWeight: FontWeight.w500),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        borderSide: BorderSide(width: 1, color: CustomColors.gray.shade900),
+        borderSide: const BorderSide(width: 1, color: CustomColors.black),
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: const BorderSide(
-          color: Color.fromARGB(255, 231, 231, 233),
+          color: CustomColors.black,
         ),
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       ),
