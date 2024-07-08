@@ -44,7 +44,7 @@ class UIHelpers {
     );
   }
 
-  static Widget listDivider = Divider(
+  static Widget listDivider = const Divider(
     color: Colors.grey,
     thickness: 1,
   );

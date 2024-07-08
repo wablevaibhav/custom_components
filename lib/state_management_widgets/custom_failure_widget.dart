@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 
 class CustomFailureWidget extends StatelessWidget {
   final VoidCallback onTap;
-  final String title = 'Oops!';
-  final String message = 'Something went wrong. Please try again later.';
+  final String? title;
+  final String? message;
 
   const CustomFailureWidget({
     super.key,
     required this.onTap,
+    this.title,
+    this.message,
   });
 
   @override
@@ -17,8 +19,8 @@ class CustomFailureWidget extends StatelessWidget {
       onTap: onTap,
       child: CustomAlert.style(
         style: CustomAlertStyle.danger,
-        title: title,
-        message: message,
+        title: title ?? 'Oops!',
+        message: message ?? 'Something went wrong. Please try again later.',
       ),
     );
   }
