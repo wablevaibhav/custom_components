@@ -19,6 +19,10 @@ class UIHelpers {
   static Widget verticalSpaceLarge = const SizedBox(height: 35.0);
   static Widget verticalSpaceHuge = const SizedBox(height: 300.0);
 
+  static hideKeyBoard() {
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+  }
+
   // Screen Size helpers
 
   static double screenWidth(BuildContext context) =>
