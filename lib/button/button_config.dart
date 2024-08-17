@@ -20,17 +20,17 @@ extension StyleExtension on ButtonType {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0),
               ),
-              backgroundColor: CustomColors.bluePrimary,
+              backgroundColor: CustomColors.primary,
             ));
       case ButtonType.primaryOutline:
         return ColorConfig(
-            textColor: CustomColors.bluePrimary,
+            textColor: CustomColors.primary,
             buttonStyle: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0),
               ),
               elevation: 3,
-              side: const BorderSide(color: CustomColors.bluePrimary),
+              side: const BorderSide(color: CustomColors.primary),
               // backgroundColor: Colors.transparent,
             ));
       case ButtonType.primaryText:
@@ -42,7 +42,7 @@ extension StyleExtension on ButtonType {
                 foregroundColor: Colors.transparent,
                 elevation: 0,
                 backgroundColor: Colors.transparent),
-            textColor: CustomColors.bluePrimary);
+            textColor: CustomColors.primary);
       case ButtonType.dark:
         return ColorConfig(
             buttonStyle: ElevatedButton.styleFrom(

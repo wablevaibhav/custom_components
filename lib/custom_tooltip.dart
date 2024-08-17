@@ -98,9 +98,9 @@ class CustomTooltip extends StatefulWidget {
     this.messageWidgetHeight = 20,
     this.mobileBackgroundExitEnabled = true,
     this.closeCallback,
-  })  : messageTextStyle =
-            textStyle ?? CustomTextStyle.normal.withColor(CustomColors.white),
-        backgroundColor = backgroundColor ?? CustomColors.bluePrimary,
+  })  : messageTextStyle = textStyle ??
+            CustomTextStyle.bodyText1.withColor(CustomColors.white),
+        backgroundColor = backgroundColor ?? CustomColors.primary,
         activeChild = activeChild ?? child;
 
   @override

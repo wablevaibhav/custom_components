@@ -1,6 +1,7 @@
 import 'package:custom_components/button/button_config.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 export 'button_config.dart';
 export 'custom_button_icon.dart';
 
@@ -50,7 +51,7 @@ class CustomButton extends StatelessWidget {
               text,
               overflow: TextOverflow.ellipsis,
               style: textStyle ??
-                  TextStyle(
+                  GoogleFonts.poppins(
                     decoration: textDecoration ?? TextDecoration.none,
                     decorationColor: buttonType.buttonTheme.textColor,
                     color: buttonType.buttonTheme.textColor,

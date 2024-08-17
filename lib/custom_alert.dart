@@ -55,9 +55,9 @@ extension CustomAlertStyleColorExtension on CustomAlertStyle {
       case CustomAlertStyle.info:
         return CustomIcons.info;
       case CustomAlertStyle.warning:
-        return CustomIcons.exclamationTriangle;
+        return CustomIcons.warning;
       case CustomAlertStyle.danger:
-        return CustomIcons.exclamationTriangle;
+        return CustomIcons.error;
     }
   }
 }
@@ -98,9 +98,9 @@ class CustomAlert extends StatelessWidget {
       TextStyle? messageTextStyle})
       : titleColor = titleColor ?? CustomColors.gray,
         messageColor = messageColor ?? CustomColors.gray,
-        titleTextStyle = titleTextStyle ?? CustomTextStyle.normal,
+        titleTextStyle = titleTextStyle ?? CustomTextStyle.bodyText1,
         messageTextStyle =
-            messageTextStyle ?? CustomTextStyle.normal.light300();
+            messageTextStyle ?? CustomTextStyle.bodyText1.light300();
 
   factory CustomAlert.style(
       {required CustomAlertStyle style,

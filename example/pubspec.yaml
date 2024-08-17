@@ -16,9 +16,6 @@ dependencies:
   cupertino_icons: ^1.0.6
   custom_components:
     path: ../
-  awesome_bottom_bar: ^1.2.4
-  flashy_tab_bar2: ^0.0.10
-  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

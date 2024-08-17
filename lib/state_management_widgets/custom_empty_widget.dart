@@ -12,7 +12,7 @@ class CustomEmptyWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           title ?? 'No Data Found!!',
-          style: CustomTextStyle.normal,
+          style: CustomTextStyle.bodyText1,
         ),
       ),
     );

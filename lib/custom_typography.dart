@@ -1,195 +1,139 @@
-import 'package:custom_components/custom_components.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextStyle {
   const CustomTextStyle._();
 
-  static const Color fontColor = CustomColors.black;
-  static const Color fontHintColor = CustomColors.gray;
+  static const Color fontColor = Colors.black;
+  static const Color fontHintColor = Colors.grey;
   static const FontWeight fontWeight = FontWeight.normal;
 
-  // HEADING H1
-  static final TextStyle headingH1 = GoogleFonts.poppins(
+  // HEADINGS
+  static final TextStyle heading1 = GoogleFonts.poppins(
     fontSize: 48.0,
-    letterSpacing: 0.42,
-    height: 32.0 / 28.0,
+    letterSpacing: 0.5,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.bold,
   );
 
-  // HEADING H2
-  static final TextStyle headingH2 = GoogleFonts.poppins(
+  static final TextStyle heading2 = GoogleFonts.poppins(
     fontSize: 40.0,
-    letterSpacing: 0.36,
-    height: 32.0 / 24.0,
+    letterSpacing: 0.4,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.bold,
   );
 
-  // SUB-HEADING H3
-  static final TextStyle subHeadingH3 = GoogleFonts.poppins(
+  static final TextStyle heading3 = GoogleFonts.poppins(
     fontSize: 32.0,
     letterSpacing: 0.3,
-    height: 26.0 / 20.0,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.bold,
   );
 
-  // SUB-HEADING H4
-  static final TextStyle subHeadingH4 = GoogleFonts.poppins(
+  static final TextStyle heading4 = GoogleFonts.poppins(
     fontSize: 28.0,
-    letterSpacing: 0.27,
-    height: 24.0 / 18.0,
+    letterSpacing: 0.25,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.bold,
   );
 
-  // SUB-HEADING H5
-  static final TextStyle subHeadingH5 = GoogleFonts.poppins(
+  static final TextStyle heading5 = GoogleFonts.poppins(
     fontSize: 24.0,
-    letterSpacing: 0.24,
-    height: 21.0 / 16.0,
+    letterSpacing: 0.2,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.bold,
   );
 
-  // SUB-HEADING H6
-  static final TextStyle subHeadingH6 = GoogleFonts.poppins(
+  static final TextStyle heading6 = GoogleFonts.poppins(
     fontSize: 20.0,
-    letterSpacing: 0.21,
-    height: 20.0 / 16.0,
+    letterSpacing: 0.15,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.bold,
   );
 
-  // NORMAL
-  static final TextStyle normal = GoogleFonts.poppins(
-    fontSize: 18.0,
-    letterSpacing: 0.24,
-    height: 24.0 / 16.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // SMALL
-  static final TextStyle small = GoogleFonts.poppins(
+  // SUBTITLES
+  static final TextStyle subtitle1 = GoogleFonts.poppins(
     fontSize: 16.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
+    letterSpacing: 0.15,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.w500,
   );
 
-  // HINT
-  static final TextStyle hint = GoogleFonts.poppins(
+  static final TextStyle subtitle2 = GoogleFonts.poppins(
     fontSize: 14.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
+    letterSpacing: 0.1,
+    height: 1.2,
     color: fontColor,
-    fontWeight: fontWeight,
+    fontWeight: FontWeight.w500,
   );
 
-  // MEDIUM HINT
-  static final TextStyle mediumHint = GoogleFonts.poppins(
-    fontSize: 12.0,
-    letterSpacing: 0.27,
-    height: 24.0 / 18.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // SMALL HINT
-  static final TextStyle smallHint = GoogleFonts.poppins(
-    fontSize: 10.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // EXTRA LARGE UNDERLINE
-  static final TextStyle extraLargeUnderline = GoogleFonts.poppins(
-    decoration: TextDecoration.underline,
-    fontSize: 20.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // LARGE UNDERLINE
-  static final TextStyle largeUnderline = GoogleFonts.poppins(
-    decoration: TextDecoration.underline,
-    fontSize: 18.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // MEDIUM UNDERLINE
-  static final TextStyle mediumUnderline = GoogleFonts.poppins(
-    decoration: TextDecoration.underline,
+  // BODY TEXT
+  static final TextStyle bodyText1 = GoogleFonts.poppins(
     fontSize: 16.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
+    letterSpacing: 0.5,
+    height: 1.5,
     color: fontColor,
     fontWeight: fontWeight,
   );
 
-  // SMALL UNDERLINE
-  static final TextStyle smallUnderline = GoogleFonts.poppins(
+  static final TextStyle bodyText2 = GoogleFonts.poppins(
     fontSize: 14.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
+    letterSpacing: 0.25,
+    height: 1.5,
     color: fontColor,
     fontWeight: fontWeight,
   );
 
-  // EXTRA SMALL UNDERLINE
-  static final TextStyle extraSmallUnderline = GoogleFonts.poppins(
-    fontSize: 12.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // BUTTON
-  static final TextStyle button = GoogleFonts.poppins(
-    fontSize: 14.0,
-    letterSpacing: 0.21,
-    height: 21.0 / 14.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // CAPTION
+  // CAPTIONS
   static final TextStyle caption = GoogleFonts.poppins(
     fontSize: 12.0,
-    letterSpacing: 0.18,
-    height: 16.0 / 12.0,
-    color: fontColor,
-    fontWeight: fontWeight,
-  );
-
-  // DESCRIPTION
-  static final TextStyle description = GoogleFonts.poppins(
-    fontSize: 12.0,
-    letterSpacing: 0.18,
-    height: 16.0 / 12.0,
-    color: fontColor,
-    fontStyle: FontStyle.italic,
-    fontWeight: fontWeight,
-  );
-
-  // REGULAR
-  static final TextStyle regularTextStyle = GoogleFonts.poppins(
-    fontSize: 16.0,
     letterSpacing: 0.4,
-    height: 34.0 / 16.0,
+    height: 1.2,
     color: fontColor,
+    fontWeight: fontWeight,
+  );
+
+  // BUTTONS
+  static final TextStyle button = GoogleFonts.poppins(
+    fontSize: 14.0,
+    letterSpacing: 1.25,
+    height: 1.2,
+    color: fontColor,
+    fontWeight: FontWeight.w600,
+  );
+
+  // OVERLINES
+  static final TextStyle overline = GoogleFonts.poppins(
+    fontSize: 10.0,
+    letterSpacing: 1.5,
+    height: 1.2,
+    color: fontColor,
+    fontWeight: fontWeight,
+  );
+
+  // HINT TEXT
+  static final TextStyle hint = GoogleFonts.poppins(
+    fontSize: 14.0,
+    letterSpacing: 0.5,
+    height: 1.2,
+    color: fontHintColor,
+    fontWeight: fontWeight,
+  );
+
+  // UNDERLINE TEXT
+  static final TextStyle underline = GoogleFonts.poppins(
+    fontSize: 14.0,
+    letterSpacing: 0.5,
+    height: 1.2,
+    color: fontColor,
+    decoration: TextDecoration.underline,
     fontWeight: fontWeight,
   );
 }
@@ -214,10 +158,6 @@ extension CustomTextStyleExtension on TextStyle {
     return copyWith(fontWeight: FontWeight.w600);
   }
 
-  TextStyle bold400() {
-    return copyWith(fontWeight: FontWeight.w400);
-  }
-
   TextStyle bold700() {
     return copyWith(fontWeight: FontWeight.w700);
   }
@@ -228,5 +168,9 @@ extension CustomTextStyleExtension on TextStyle {
 
   TextStyle withColor(Color color) {
     return copyWith(color: color);
+  }
+
+  TextStyle withUnderline() {
+    return copyWith(decoration: TextDecoration.underline);
   }
 }

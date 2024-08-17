@@ -23,6 +23,7 @@ class CustomTextInput extends StatelessWidget {
   final bool? enabled;
   final int? maxLength;
   final int? maxLines;
+  final Color? color;
 
   const CustomTextInput({
     super.key,
@@ -46,13 +47,14 @@ class CustomTextInput extends StatelessWidget {
     this.validator,
     this.maxLength,
     this.maxLines,
+    this.color = CustomColors.black,
   });
 
   @override
   Widget build(BuildContext context) {
     return Theme(
         data: Theme.of(context).copyWith(
-          primaryColor: CustomColors.bluePrimary,
+          primaryColor: color,
         ),
         child: Material(
           child: TextFormField(
@@ -67,7 +69,7 @@ class CustomTextInput extends StatelessWidget {
             showCursor: showCursor ?? true,
             maxLength: maxLength,
             maxLines: maxLines ?? 1,
-            cursorColor: CustomColors.black,
+            cursorColor: cursorColor ?? CustomColors.black,
             decoration: inputDecoration(hint, suffixIcon),
             obscureText: obscureText ?? false,
             autocorrect: autoCorrect ?? false,
@@ -78,7 +80,7 @@ class CustomTextInput extends StatelessWidget {
   }
 
   InputDecoration inputDecoration(String? hint, Widget? suffixIcon,
-      {double borderRadius = 8,
+      {double borderRadius = 5,
       bool borderEnabled = true,
       bool isDense = false,
       EdgeInsets contentPadding = const EdgeInsets.fromLTRB(16, 10, 16, 10)}) {
@@ -86,37 +88,39 @@ class CustomTextInput extends StatelessWidget {
       label: Text(
         label ?? '',
         style: labelTextStyle ??
-            CustomTextStyle.small.copyWith(
-                fontWeight: FontWeight.w400, color: CustomColors.black),
+            CustomTextStyle.bodyText2.copyWith(
+                fontWeight: FontWeight.w400,
+                color: color ?? CustomColors.black),
       ),
-      fillColor: CustomColors.disablePrimary,
+      fillColor: CustomColors.disable,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
       filled: !enabled!,
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        borderSide: const BorderSide(color: CustomColors.dangerPrimary),
+        borderSide: const BorderSide(color: CustomColors.danger),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        borderSide: const BorderSide(color: CustomColors.dangerPrimary),
+        borderSide: const BorderSide(color: CustomColors.danger),
       ),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        borderSide: const BorderSide(color: CustomColors.disablePrimary),
+        borderSide: const BorderSide(color: CustomColors.disable),
       ),
       focusColor: CustomColors.black,
-      hintStyle: const TextStyle(
-          color: Color.fromARGB(255, 133, 135, 145),
+      hintStyle: CustomTextStyle.bodyText2.copyWith(
+          color: const Color.fromARGB(255, 133, 135, 145),
           fontWeight: FontWeight.w400),
       hoverColor: CustomColors.black,
-      floatingLabelStyle: const TextStyle(
+      floatingLabelStyle: CustomTextStyle.bodyText1.copyWith(
           color: CustomColors.black, fontSize: 12, fontWeight: FontWeight.w500),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        borderSide: const BorderSide(width: 1, color: CustomColors.black),
+        borderSide: BorderSide(width: 1, color: color ?? CustomColors.black),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: CustomColors.black,
+        borderSide: BorderSide(
+          color: color ?? CustomColors.black,
         ),
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       ),
