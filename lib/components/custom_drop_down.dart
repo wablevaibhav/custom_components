@@ -21,6 +21,8 @@ class CustomSearchDropdown extends StatelessWidget {
   final TextStyle? hintStyle;
   final String? hintText;
   final Color? color;
+  final Color? backgroundColor;
+  final double? radius;
 
   const CustomSearchDropdown({
     super.key,
@@ -38,6 +40,8 @@ class CustomSearchDropdown extends StatelessWidget {
     required this.showSearchBox,
     this.isMenu = false,
     this.color,
+    this.backgroundColor,
+    this.radius,
   });
 
   @override
@@ -62,21 +66,28 @@ class CustomSearchDropdown extends StatelessWidget {
                     );
                   },
                   errorBuilder: (context, searchEntry, exception) {
-                    return const Padding(
-                        padding: EdgeInsets.all(12.0),
-                        child: Text("something went wrong"));
+                    return Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          "something went wrong",
+                          style: CustomTextStyle.bodyText1,
+                        ));
                   },
                   emptyBuilder: (context, searchEntry) {
                     return Padding(
                       padding: const EdgeInsets.all(12.0),
-                      child: Text(emptyText ?? "No Data Found"),
+                      child: Text(
+                        emptyText ?? "No Data Found",
+                        style: CustomTextStyle.bodyText1,
+                      ),
                     );
                   },
                   fit: FlexFit.loose,
                   showSearchBox: showSearchBox)
               : PopupProps.dialog(
-                  dialogProps: const DialogProps(
-                      backgroundColor: Color.fromARGB(255, 239, 240, 243),
+                  dialogProps: DialogProps(
+                      backgroundColor: backgroundColor ??
+                          const Color.fromARGB(255, 239, 240, 243),
                       elevation: 8),
                   listViewProps: const ListViewProps(
                       dragStartBehavior: DragStartBehavior.down),
@@ -111,13 +122,18 @@ class CustomSearchDropdown extends StatelessWidget {
               hintText: hintText ?? "Select",
               hintStyle: CustomTextStyle.bodyText2
                   .copyWith(color: CustomColors.disable),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? 5),
+                borderSide: const BorderSide(color: CustomColors.danger),
+              ),
               border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(radius ?? 5),
                   borderSide: BorderSide(color: color ?? CustomColors.black)),
               focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(radius ?? 5),
                   borderSide: BorderSide(color: color ?? CustomColors.black)),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(radius ?? 5),
                   borderSide: BorderSide(color: color ?? CustomColors.black)),
             ),
           ),
