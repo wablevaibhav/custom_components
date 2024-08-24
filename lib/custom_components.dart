@@ -15,6 +15,7 @@ export 'responsive.dart';
 // Package Imports
 export 'package:gap/gap.dart';
 export 'package:email_validator/email_validator.dart';
+export 'package:loading_animation_widget/loading_animation_widget.dart';
 
 // Button Widgets
 export 'button/custom_elevated_button.dart';
