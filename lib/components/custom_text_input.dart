@@ -24,6 +24,7 @@ class CustomTextInput extends StatelessWidget {
     this.onFieldSubmitted,
     this.contentPadding = const EdgeInsets.symmetric(horizontal: 10),
     this.validator,
+    this.password = false,
   });
 
   final String? labelText;
@@ -47,6 +48,7 @@ class CustomTextInput extends StatelessWidget {
   final Function(String)? onFieldSubmitted;
   final EdgeInsets contentPadding;
   final FormFieldValidator<String>? validator;
+  final bool password;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +64,7 @@ class CustomTextInput extends StatelessWidget {
       maxLength: maxLength,
       maxLines: maxLines,
       focusNode: focusNode,
+      obscureText: password,
       cursorColor: Theme.of(context).primaryColor,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
