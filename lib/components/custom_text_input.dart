@@ -23,6 +23,7 @@ class CustomTextInput extends StatelessWidget {
     this.onTap,
     this.onFieldSubmitted,
     this.contentPadding = const EdgeInsets.symmetric(horizontal: 10),
+    this.validator,
   });
 
   final String? labelText;
@@ -45,11 +46,13 @@ class CustomTextInput extends StatelessWidget {
   final Function()? onTap;
   final Function(String)? onFieldSubmitted;
   final EdgeInsets contentPadding;
+  final FormFieldValidator<String>? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onTap: onTap,
+      validator: validator,
       onFieldSubmitted: onFieldSubmitted,
       controller: controller,
       keyboardType: keyboardType,
