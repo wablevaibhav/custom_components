@@ -1,3 +1,4 @@
+import 'package:custom_components/custom_components.dart';
 import 'package:example/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Custom Components',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      themeMode: ThemeMode.light,
+      darkTheme: CustomTheme.darkTheme,
+      home: const HomePage(),
     );
   }
 }

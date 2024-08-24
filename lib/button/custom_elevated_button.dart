@@ -37,14 +37,14 @@ class CustomElevatedButton extends StatelessWidget {
           ? Container()
           : Icon(
               iconData,
-              color: iconColor ?? Colors.white,
+              color: iconColor ?? Theme.of(context).cardColor,
             ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor ?? CustomColors.primary,
+        backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius ?? 5),
           side: BorderSide(
-            color: borderColor ?? CustomColors.primary,
+            color: borderColor ?? Theme.of(context).primaryColor,
           ),
         ),
         fixedSize:
@@ -52,8 +52,10 @@ class CustomElevatedButton extends StatelessWidget {
       ),
       label: Text(title,
           style: textStyle ??
-              CustomTextStyle.button
-                  .copyWith(color: textColor ?? Colors.white)),
+              Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: textColor ?? Theme.of(context).cardColor)),
     );
   }
 }

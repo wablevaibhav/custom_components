@@ -1,10 +1,8 @@
-import 'package:custom_components/custom_components.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomLoadingWidget extends StatelessWidget {
   final double width, height, radius;
-  final Color baseColor, highlightColor;
   final BorderRadius? borderRadius;
 
   const CustomLoadingWidget({
@@ -13,8 +11,6 @@ class CustomLoadingWidget extends StatelessWidget {
     required this.height,
     this.radius = 0.0,
     this.borderRadius = BorderRadius.zero,
-    this.baseColor = const Color(0xFFdadada),
-    this.highlightColor = const Color(0xFFc6d1e7),
   });
 
   @override
@@ -24,12 +20,12 @@ class CustomLoadingWidget extends StatelessWidget {
             ? BorderRadius.circular(radius)
             : borderRadius ?? BorderRadius.zero,
         child: Shimmer.fromColors(
-          baseColor: baseColor,
-          highlightColor: highlightColor,
+          baseColor: Theme.of(context).highlightColor,
+          highlightColor: Theme.of(context).highlightColor,
           child: Container(
             width: width,
             height: height,
-            color: CustomColors.white,
+            color: Theme.of(context).cardColor,
           ),
         ));
   }

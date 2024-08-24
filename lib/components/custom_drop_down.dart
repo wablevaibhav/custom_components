@@ -1,5 +1,3 @@
-import "package:custom_components/custom_colors.dart";
-import "package:custom_components/custom_typography.dart";
 import "package:dropdown_search/dropdown_search.dart";
 import "package:flutter/gestures.dart";
 import "package:flutter/material.dart";
@@ -20,9 +18,7 @@ class CustomSearchDropdown extends StatelessWidget {
   final TextStyle? style;
   final TextStyle? hintStyle;
   final String? hintText;
-  final Color? color;
-  final Color? backgroundColor;
-  final double? radius;
+  final double radius;
 
   const CustomSearchDropdown({
     super.key,
@@ -38,108 +34,100 @@ class CustomSearchDropdown extends StatelessWidget {
     this.hintText,
     this.hintStyle,
     required this.showSearchBox,
-    this.isMenu = false,
-    this.color,
-    this.backgroundColor,
-    this.radius,
+    this.isMenu = true,
+    this.radius = 2,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: Theme.of(context).copyWith(
-        primaryColor: color ?? CustomColors.black,
-      ),
-      child: Material(
-        child: DropdownSearch<String>(
-          validator: validator,
-          enabled: isEnable ?? true,
-          selectedItem: selectedValue,
-          onChanged: onChanged,
-          popupProps: isMenu == true
-              ? PopupProps.menu(
-                  listViewProps: const ListViewProps(
-                      dragStartBehavior: DragStartBehavior.down),
-                  loadingBuilder: (context, searchEntry) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  },
-                  errorBuilder: (context, searchEntry, exception) {
-                    return Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          "something went wrong",
-                          style: CustomTextStyle.bodyText1,
-                        ));
-                  },
-                  emptyBuilder: (context, searchEntry) {
-                    return Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        emptyText ?? "No Data Found",
-                        style: CustomTextStyle.bodyText1,
-                      ),
-                    );
-                  },
-                  fit: FlexFit.loose,
-                  showSearchBox: showSearchBox)
-              : PopupProps.dialog(
-                  dialogProps: DialogProps(
-                      backgroundColor: backgroundColor ??
-                          const Color.fromARGB(255, 239, 240, 243),
-                      elevation: 8),
-                  listViewProps: const ListViewProps(
-                      dragStartBehavior: DragStartBehavior.down),
-                  loadingBuilder: (context, searchEntry) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  },
-                  errorBuilder: (context, searchEntry, exception) {
-                    return const Padding(
-                        padding: EdgeInsets.all(12.0),
-                        child: Text("something went wrong"));
-                  },
-                  emptyBuilder: (context, searchEntry) {
-                    return const Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: Text("No Data Found"),
-                    );
-                  },
-                  fit: FlexFit.loose,
-                  showSearchBox: showSearchBox),
-          dropdownButtonProps: const DropdownButtonProps(),
-          dropdownDecoratorProps: DropDownDecoratorProps(
-            dropdownSearchDecoration: InputDecoration(
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              label: Text(title ?? "",
-                  style: style ??
-                      CustomTextStyle.bodyText2.copyWith(
-                          fontWeight: FontWeight.w400,
-                          color: color ?? CustomColors.black)),
-              contentPadding: const EdgeInsets.fromLTRB(8, 6, 8, 6),
-              hintText: hintText ?? "Select",
-              hintStyle: CustomTextStyle.bodyText2
-                  .copyWith(color: CustomColors.disable),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius ?? 5),
-                borderSide: const BorderSide(color: CustomColors.danger),
-              ),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(radius ?? 5),
-                  borderSide: BorderSide(color: color ?? CustomColors.black)),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(radius ?? 5),
-                  borderSide: BorderSide(color: color ?? CustomColors.black)),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(radius ?? 5),
-                  borderSide: BorderSide(color: color ?? CustomColors.black)),
-            ),
+    return DropdownSearch<String>(
+      validator: validator,
+      enabled: isEnable ?? true,
+      selectedItem: selectedValue,
+      onChanged: onChanged,
+      popupProps: isMenu == true
+          ? PopupProps.menu(
+              listViewProps: const ListViewProps(
+                  dragStartBehavior: DragStartBehavior.down),
+              loadingBuilder: (context, searchEntry) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+              errorBuilder: (context, searchEntry, exception) {
+                return Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      "something went wrong",
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ));
+              },
+              emptyBuilder: (context, searchEntry) {
+                return Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    emptyText ?? "No Data Found",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                );
+              },
+              fit: FlexFit.loose,
+              showSearchBox: showSearchBox)
+          : PopupProps.dialog(
+              dialogProps: DialogProps(
+                  backgroundColor: Theme.of(context).cardColor, elevation: 8),
+              listViewProps: const ListViewProps(
+                  dragStartBehavior: DragStartBehavior.down),
+              loadingBuilder: (context, searchEntry) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+              errorBuilder: (context, searchEntry, exception) {
+                return Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "something went wrong",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                );
+              },
+              emptyBuilder: (context, searchEntry) {
+                return Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    "No Data Found",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                );
+              },
+              fit: FlexFit.loose,
+              showSearchBox: showSearchBox),
+      dropdownButtonProps: const DropdownButtonProps(),
+      dropdownDecoratorProps: DropDownDecoratorProps(
+        dropdownSearchDecoration: InputDecoration(
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          label: Text(title ?? "",
+              style: style ?? Theme.of(context).textTheme.bodyMedium),
+          contentPadding: const EdgeInsets.fromLTRB(8, 6, 8, 6),
+          hintText: hintText ?? "Select",
+          hintStyle: hintStyle ?? Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(radius),
+            borderSide: const BorderSide(color: Colors.red),
           ),
-          items: items,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius),
+              borderSide: BorderSide(color: Theme.of(context).highlightColor)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius),
+              borderSide: BorderSide(color: Theme.of(context).primaryColor)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius),
+              borderSide: BorderSide(color: Theme.of(context).highlightColor)),
         ),
       ),
+      items: items,
     );
   }
 }

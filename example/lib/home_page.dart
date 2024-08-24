@@ -16,10 +16,10 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               const CustomTextInput(
-                hint: "Enter Value",
-                label: "Value",
-                color: CustomColors.secondary,
-              ),
+                  hintText: "Enter Value",
+                  labelText: "Value",
+                  prefixIcon: Icon(Icons.person),
+                  floatingLabelBehavior: FloatingLabelBehavior.always),
               const Gap(20),
               const CustomSearchDropdown(
                 items: [
@@ -29,7 +29,6 @@ class HomePage extends StatelessWidget {
                   "Item 4",
                   "Item 5",
                 ],
-                color: Colors.blue,
                 showSearchBox: false,
                 isMenu: true,
                 title: "Select Item",

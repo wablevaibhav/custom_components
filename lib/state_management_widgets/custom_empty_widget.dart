@@ -1,9 +1,11 @@
-import 'package:custom_components/custom_components.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class CustomEmptyWidget extends StatelessWidget {
   final String? title;
-  const CustomEmptyWidget({super.key, required this.title});
+  const CustomEmptyWidget({
+    super.key,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class CustomEmptyWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           title ?? 'No Data Found!!',
-          style: CustomTextStyle.bodyText1,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
     );

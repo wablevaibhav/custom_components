@@ -96,8 +96,8 @@ class CustomAlert extends StatelessWidget {
       this.maxWidth = double.infinity,
       TextStyle? titleTextStyle,
       TextStyle? messageTextStyle})
-      : titleColor = titleColor ?? CustomColors.gray,
-        messageColor = messageColor ?? CustomColors.gray,
+      : titleColor = titleColor ?? AppColors.neutralMedium,
+        messageColor = messageColor ?? AppColors.neutralMedium,
         titleTextStyle = titleTextStyle ?? CustomTextStyle.bodyText1,
         messageTextStyle =
             messageTextStyle ?? CustomTextStyle.bodyText1.light300();
@@ -124,8 +124,8 @@ class CustomAlert extends StatelessWidget {
         maxWidth: maxWidth,
         titleColor: style.textColor(),
         messageColor: style.textColor(),
-        titleTextStyle: titleTextStyle,
-        messageTextStyle: messageTextStyle);
+        titleTextStyle: titleTextStyle ?? CustomTextStyle.bodyText1,
+        messageTextStyle: messageTextStyle ?? CustomTextStyle.bodyText1);
   }
 
   @override
@@ -135,7 +135,7 @@ class CustomAlert extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(maxWidth: maxWidth),
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color: Theme.of(context).cardColor,
           borderRadius: borderRadius,
         ),
         padding: padding,
@@ -153,11 +153,15 @@ class CustomAlert extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(
                     text: "$title ",
-                    style: titleTextStyle.bold700().withColor(titleColor),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: titleColor,
+                        ),
                     children: <TextSpan>[
                       TextSpan(
                         text: message,
-                        style: messageTextStyle.withColor(messageColor),
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: messageColor,
+                            ),
                       ),
                     ],
                   ),

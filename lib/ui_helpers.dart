@@ -1,7 +1,6 @@
 // Horizontal Spacing , media query , dividers
 import 'dart:math';
-
-import 'package:custom_components/custom_components.dart';
+import 'package:custom_components/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -43,7 +42,7 @@ class UIHelpers {
     return Column(
       children: <Widget>[
         verticalSpaceTiny,
-        Divider(height: spaceHeight, color: CustomColors.gray.shade3),
+        Divider(height: spaceHeight, color: AppColors.neutralLighter),
         verticalSpaceTiny,
       ],
     );
