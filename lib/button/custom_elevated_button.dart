@@ -48,7 +48,7 @@ class CustomElevatedButton extends StatelessWidget {
           ),
         ),
         fixedSize:
-            Size(width ?? UIHelpers.screenWidth(context) * 1.0, height ?? 50),
+            Size(width ?? UIHelpers.screenWidth(context) * 1.0, height ?? 57),
       ),
       label: Text(title,
           style: textStyle ??

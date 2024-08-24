@@ -6,7 +6,7 @@ class Validations {
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
 
     if (passNonNullValue.isEmpty) {
-      return 'Please enter some text';
+      return 'Please enter your email';
     } else if (!passNonNullValue.contains("@")) {
       return ("Email should contains @");
     } else if (!reg.hasMatch(passNonNullValue)) {
@@ -21,7 +21,7 @@ class Validations {
     RegExp regex =
         RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return 'Please enter your password';
     } else if (value.length <= 8) {
       return ("Password Must be more than 8 characters");
     } else if (!regex.hasMatch(passNonNullValue)) {
@@ -35,7 +35,7 @@ class Validations {
     var nameNonNullValue = value ?? "";
     RegExp regExp = RegExp(r'^[a-zA-Z]*$');
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return 'Please enter your name';
     } else if (!regExp.hasMatch(nameNonNullValue)) {
       return ("No number and special characters allowed.");
     }
@@ -45,7 +45,7 @@ class Validations {
   // Address validation
   static String? addressValidation(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return 'Please enter your address';
     }
     return null;
   }
@@ -56,7 +56,7 @@ class Validations {
     var phoneNonNullValue = value ?? "";
 
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return 'Please enter your mobile number';
     } else if (!regExp.hasMatch(phoneNonNullValue)) {
       return ("Only 10 digit allowed");
     }
@@ -66,7 +66,7 @@ class Validations {
   // Age validation
   static String? ageValidation(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return 'Please enter your age';
     } else if (int.parse(value) < 18) {
       return ("Age should be more than 18");
     }
@@ -76,7 +76,7 @@ class Validations {
   // Required field validation
   static String? requireField(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter some text';
+      return 'Please enter this field';
     }
 
     return null;
