@@ -2,16 +2,16 @@ import 'package:custom_components/custom_components.dart';
 import 'package:flutter/material.dart';
 
 class CustomFailureWidget extends StatelessWidget {
-  final VoidCallback onTap;
-  final String? title;
-  final String? message;
-
   const CustomFailureWidget({
     super.key,
     required this.onTap,
     this.title,
     this.message,
   });
+
+  final String? message;
+  final VoidCallback onTap;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {

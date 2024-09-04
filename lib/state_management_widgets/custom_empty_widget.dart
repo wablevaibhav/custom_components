@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomEmptyWidget extends StatelessWidget {
-  final String? title;
   const CustomEmptyWidget({
     super.key,
     required this.title,
   });
+
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
